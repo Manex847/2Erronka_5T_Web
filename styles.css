@@ -1,0 +1,135 @@
+body {
+    margin: 0;
+    padding-top: 60px; 
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #e8f0e5;
+    color: white;
+    overflow-x: hidden;
+}
+
+header {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+    background: rgba(51, 206, 4, 0.1);
+    backdrop-filter: blur(10px);
+    z-index: 9999;
+    box-sizing: border-box;
+}
+
+.LogoHeader {
+    height: 60px;
+    width: auto;
+    margin-right: 0px;
+}
+
+header h1 {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    margin: 0 auto; 
+}
+
+.menu-btn {
+    background: none;
+    border: none;
+    color: rgb(255, 255, 255);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -80%; 
+    width: 80%; 
+    max-width: 300px;
+    height: 100%;
+    background-color: rgb(81, 255, 0, 0.1);
+    backdrop-filter: blur(10px);
+    z-index: 1001;
+    transition: 0.3s ease-in-out;
+    padding: 80px 20px 20px;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.sidebar-nav a {
+    display: block;
+    color: rgb(0, 255, 221);
+    text-decoration: none;
+    padding: 20px 10px; 
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(81, 255, 0, 0.05);
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2.5rem;
+}
+
+.Slogana {
+    background-color: rgb(9, 199, 9);
+    padding: 50px 10px;
+    text-align: center;
+}
+
+.SliderMain {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.DispositibaMultzoa {
+    width: 100%;
+}
+
+.DispositibaMultzoa div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    background-color: white;
+    
+}
+
+.DispositibaMultzoa img {
+    width: 100%; 
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+    margin: 0 auto;
+    display: block;
+}
+
+@media (min-width: 1024px) {
+    .DispositibaMultzoa {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .DispositibaMultzoa img {
+        width: 100%;
+        max-width: 700px;
+        height: 350px;
+        margin: 0 auto;
+    }
+}
