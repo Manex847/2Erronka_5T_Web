@@ -11,10 +11,8 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 </head>
 <body>
-    <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
-
     <div class="sidebar" id="sidebar">
-        <button class="close-btn" onclick="toggleSidebar()">×</button>
+        <button class="close-btn">×</button>
         <nav class="sidebar-nav">
             <a href="login.html">SAIOA HASI</a>
             <a href="berriak.html">BERRIAK</a>
@@ -25,7 +23,7 @@
     </div> 
 
     <header>
-        <button class="menu-btn" onclick="toggleSidebar()">
+        <button class="menu-btn">
             <i class="fas fa-bars"></i>
         </button>
         <img src="logo.png" alt="Logotipoa" width="150px" class="LogoHeader">
@@ -76,10 +74,9 @@
             });
         });
 
-        function toggleSidebar() {
-            document.getElementById('sidebar').classList.toggle('active');
-            document.getElementById('overlay').classList.toggle('active');
-        }
+        $(".menu-btn").on("click", function () {
+            $("#sidebar").toggleClass("active");
+        });
     </script>
 </body>
 </html>
