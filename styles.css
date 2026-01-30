@@ -1,3 +1,8 @@
+
+*{
+    margin: 0px;
+}
+
 body {
     margin: 0;
     padding-top: 60px; 
@@ -17,7 +22,7 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 30px;
-    background: rgba(51, 206, 4, 0.1);
+    background: rgba(53, 226, 0, 0.774);
     backdrop-filter: blur(10px);
     z-index: 9999;
     box-sizing: border-box;
@@ -38,7 +43,7 @@ header h1 {
 .menu-btn {
     background: none;
     border: none;
-    color: rgb(255, 255, 255);
+    color: rgba(255, 255, 255, 0.719);
     font-size: 1.5rem;
     cursor: pointer;
 }
@@ -50,7 +55,7 @@ header h1 {
     width: 80%; 
     max-width: 300px;
     height: 100%;
-    background-color: rgb(81, 255, 0, 0.1);
+    background-color: rgba(81, 255, 0, 0.411);
     backdrop-filter: blur(10px);
     z-index: 1001;
     transition: 0.3s ease-in-out;
@@ -63,7 +68,7 @@ header h1 {
 
 .sidebar-nav a {
     display: block;
-    color: rgb(0, 255, 221);
+    color: rgb(255, 255, 255);
     text-decoration: none;
     padding: 20px 10px; 
     font-size: 1.1rem;
@@ -119,6 +124,62 @@ header h1 {
     margin: 0 auto;
     display: block;
 }
+
+.SekzioTitulua{
+    background-color: rgba(9, 214, 9, 0.733);
+    padding: 15px;
+    margin-top: 5px;
+}
+
+.Produktuak{
+    text-align: center;
+    place-items: center;
+    border-radius: 15px;
+    padding: 5px;
+    padding-bottom: 25px;
+    color: black;
+    background-color: white;
+    width: 85%;
+    height: 250px;
+    margin-top: 5px;
+    box-shadow: 10px 10px 15px rgba(128, 128, 128, 0.438);
+    
+    
+}
+
+.Produktuak img{
+    width: 150px;
+    height: 100px;
+    margin-top: 10px;
+    
+}
+
+.ProduktuZerrenda{
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    margin-top: 20px;
+}
+
+.ErosiBotoia{
+    background-color: rgb(9, 199, 9);
+    border: none;
+    padding: 20px 50px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    margin-top: 50px;
+    width: 40%;
+    height: 15%;
+    margin-bottom: 5px;
+    display:flex;
+    text-align: center;
+    place-items: center;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+}   
+
 
 @media (min-width: 1024px) {
     .DispositibaMultzoa {
