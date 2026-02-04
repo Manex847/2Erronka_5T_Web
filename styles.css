@@ -184,18 +184,16 @@ header h1 {
     place-items: center;
     border-radius: 15px;
     padding: 5px;
-    padding-bottom: 25px;
     color: black;
     background-color: white;
     width: 85%;
-    height: 250px;
-    margin-top: 5px;
+    height: 300px;
     box-shadow: 10px 10px 15px rgba(128, 128, 128, 0.438);
 }
 
 .Produktuak img{
-    width: 150px;
-    height: 100px;
+    width: 60%;
+    height: auto;
     margin-top: 10px;
     
 }
@@ -203,23 +201,35 @@ header h1 {
 .ProduktuZerrenda{
     display: grid;
     place-items: center;
+    text-align: center;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     margin-top: 20px;
+    gap: 5px;
+}
+.produktu_argazkia{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: 150px;
+}
+.produktu-titulua{
+    height: 80px;
 }
 
 .ErosiBotoia{
+    display:flex;
+    flex-direction: column;
     background-color: rgb(9, 199, 9);
     border: none;
     padding: 20px 50px;
     border-radius: 5px;
     color: white;
     cursor: pointer;
-    margin-top: 50px;
     width: 40%;
     height: 15%;
     margin-bottom: 5px;
-    display:flex;
     text-align: center;
     place-items: center;
     justify-content: center;
