@@ -7,25 +7,20 @@ $marka    = $_GET['marka'] ?? "";
 $min      = $_GET['min'] ?? "";
 $max      = $_GET['max'] ?? "";
 
-
 $sql = "SELECT * FROM produktuak WHERE 1=1";
 
 if ($q !== "") {
     $sql .= " AND (izena LIKE '%$q%' OR modeloa LIKE '%$q%' OR marka LIKE '%$q%')";
 }
-
 if ($sekzioa !== "") {
     $sql .= " AND sekzioa = $sekzioa";
 }
-
 if ($marka !== "") {
     $sql .= " AND marka = '$marka'";
 }
-
 if ($min !== "") {
     $sql .= " AND prezioa >= $min";
 }
-
 if ($max !== "") {
     $sql .= " AND prezioa <= $max";
 }
@@ -33,69 +28,65 @@ if ($max !== "") {
 $ema = $konexioa->query($sql);
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Produktuak - Filtroa</title>
-</head>
-<body>
+<div class="contenido-principal">
+  <aside class="filtro">
+    <h3>Filtratu</h3>
+    <form method="GET">
+      <label>Bilatu</label>
+      <input type="text" name="q" placeholder="Izena, modeloa..." value="<?= htmlspecialchars($q) ?>">
 
-<form method="GET">
-    <input type="text" name="q" placeholder="Bilatu izena, marka edo modeloa..." value="<?= $q ?>">
-
-    <select name="sekzioa">
-        <option value="">Sekzio guztiak</option>
+      <label>Sekzioa</label>
+      <select name="sekzioa">
+        <option value="">Guztiak</option>
         <option value="1" <?= $sekzioa=="1"?"selected":"" ?>>Ordenagailuak</option>
-        <option value="2" <?= $sekzioa=="2"?"selected":"" ?>>Kamerak</option>
+        <option value="2" <?= $sekzioa=="2"?"selected":"" ?>>Kamarak</option>
         <option value="3" <?= $sekzioa=="3"?"selected":"" ?>>Kontsolak</option>
-        <option value="4" <?= $sekzioa=="4"?"selected":"" ?>>Audio / periferikoak</option>
+        <option value="4" <?= $sekzioa=="4"?"selected":"" ?>>Audiobisualak</option>
         <option value="5" <?= $sekzioa=="5"?"selected":"" ?>>Teklatuak</option>
-    </select>
+      </select>
 
-    <select name="marka">
-        <option value="">Marka guztiak</option>
+      <label>Marka</label>
+      <select name="marka">
+        <option value="">Guztiak</option>
         <option value="Sony" <?= $marka=="Sony"?"selected":"" ?>>Sony</option>
         <option value="Dell" <?= $marka=="Dell"?"selected":"" ?>>Dell</option>
         <option value="Logitech" <?= $marka=="Logitech"?"selected":"" ?>>Logitech</option>
-        <option value="Microsoft" <?= $marka=="Microsoft"?"selected":"" ?>>Microsoft</option>
-        <option value="Samsung" <?= $marka=="Samsung"?"selected":"" ?>>Samsung</option>
-        <option value="Apple" <?= $marka=="Apple"?"selected":"" ?>>Apple</option>
-        <option value="Asus" <?= $marka=="Asus"?"selected":"" ?>>Asus</option>
-        <option value="Lenovo" <?= $marka=="Lenovo"?"selected":"" ?>>Lenovo</option>
-    </select>
+        </select>
 
-    <input type="number" name="min" placeholder="Prezio min" value="<?= $min ?>">
-    <input type="number" name="max" placeholder="Prezio max" value="<?= $max ?>">
+      <label>Prezio max</label>
+      <input type="number" name="max" value="<?= $max ?>">
 
-    <button type="submit">Filtratu</button>
-</form>
+      <button type="submit">Aplikatu</button>
+    </form>
+  </aside>
 
-<br>
+  <main class="main-produktuak">
+    <section class="SekzioarenTitulua">
+      <div class="SekzioTitulua">
+        <h2>
+            <?php 
+                if ($q != "") echo "EMAITZAK: " . htmlspecialchars($q);
+                else echo "PRODUKTUAK";
+            ?>
+        </h2>
+      </div>
+    </section>
 
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Izena</th>
-        <th>Modeloa</th>
-        <th>Prezioa</th>
-        <th>Marka</th>
-        <th>Stock</th>
-        <th>Sekzioa</th>
-    </tr>
-
-    <?php while($row = $ema->fetch_assoc()): ?>
-    <tr>
-        <td><?= $row['produktu_id'] ?></td>
-        <td><?= $row['izena'] ?></td>
-        <td><?= $row['modeloa'] ?></td>
-        <td><?= $row['prezioa'] ?> €</td>
-        <td><?= $row['marka'] ?></td>
-        <td><?= $row['stock'] ?></td>
-        <td><?= $row['sekzioa'] ?></td>
-    </tr>
-    <?php endwhile; ?>
-</table>
-
-</body>
-</html>
+    <div class="ProduktuZerrenda">
+      <?php if ($ema->num_rows > 0): ?>
+          <?php while($row = $ema->fetch_assoc()): ?>
+              <div class="Produktuak">
+                  <img src="Argazkiak/<?= $row['argazkia'] ?>" alt="<?= $row['izena'] ?>" />
+                  <h3><?= $row['izena'] ?></h3>
+                  <p><strong><?= $row['prezioa'] ?> €</strong></p>
+                  <button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button>
+              </div>
+          <?php endwhile; ?>
+      <?php else: ?>
+          <p style="color: black; grid-column: span 2; padding: 20px;">
+              Ez da produkturik aurkitu bilaketa horrekin.
+          </p>
+      <?php endif; ?>
+    </div>
+  </main>
+</div>
