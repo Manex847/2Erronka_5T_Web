@@ -28,14 +28,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Pantaila</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h2>Saioa hasi</h2>
+    <header>
+        <h2>Saioa hasi</h2>
+    </header>
     
     <?php if(isset($error)) echo "<p style='color:red;'>$error</p>"; ?>
 
     <form method="POST" action="">
+        <div>
         <input type="text" name="username" placeholder="Erabiltzailea" required>
+        </div>
         <input type="password" name="password" placeholder="Pasahitza" required>
         <button type="submit">Sartu</button>
     </form>

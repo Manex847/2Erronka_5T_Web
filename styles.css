@@ -1,5 +1,5 @@
 
-<div></div>*{
+*{
     margin: 0px;
 }
 
@@ -131,6 +131,8 @@ header h1 {
     margin-top: 5px;
 }
 
+/*TXARTELAK*/
+
 .Produktuak{
     text-align: center;
     place-items: center;
@@ -190,6 +192,14 @@ header h1 {
     color: rgb(255, 255, 255);
 }   
 
+/*LOGINAREN ESTILOA*/
+
+
+/*KONTAKTUA*/
+
+
+
+/*MEDIA ERABILIZ ORDENAGAILU FORMATURA ALDATZEKO*/
 
 @media (min-width: 1024px) {
     .DispositibaMultzoa {
