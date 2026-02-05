@@ -227,6 +227,8 @@ header h1 {
     border-radius: 5px;
     color: white;
     cursor: pointer;
+    width: 40%;
+    height: 15%;
     margin-bottom: 5px;
     text-align: center;
     place-items: center;
