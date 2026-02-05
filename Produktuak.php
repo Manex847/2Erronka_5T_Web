@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="eu">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BirtekIndex</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  </head>
-  <body>
-    <?php
-    include "Menua.html";
-    ?>
-    <?php
-    include "Konexioa.php";
-    ?>
-    <div class="eduki_nagusia">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BirtekIndex</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+
+<body>
   <?php
+  include "Menua.html";
+  ?>
+  <?php
+  include "Konexioa.php";
+  ?>
+  <div class="eduki_nagusia">
+    <?php
     $q        = $_GET['q'] ?? "";
     $sekzioa  = $_GET['sekzioa'] ?? "";
     $marka    = $_GET['marka'] ?? "";
@@ -25,19 +27,19 @@
     $sql = "SELECT * FROM produktuak WHERE 1=1";
 
     if ($q !== "") {
-        $sql .= " AND (izena LIKE '%$q%' OR modeloa LIKE '%$q%' OR marka LIKE '%$q%')";
+      $sql .= " AND (izena LIKE '%$q%' OR modeloa LIKE '%$q%' OR marka LIKE '%$q%')";
     }
     if ($sekzioa !== "") {
-        $sql .= " AND sekzioa = $sekzioa";
+      $sql .= " AND sekzioa = $sekzioa";
     }
     if ($marka !== "") {
-        $sql .= " AND marka = '$marka'";
+      $sql .= " AND marka = '$marka'";
     }
     if ($min !== "") {
-        $sql .= " AND prezioa >= $min";
+      $sql .= " AND prezioa >= $min";
     }
     if ($max !== "") {
-        $sql .= " AND prezioa <= $max";
+      $sql .= " AND prezioa <= $max";
     }
 
     $ema = $konexioa->query($sql);
@@ -53,20 +55,20 @@
           <label>Sekzioa</label>
           <select name="sekzioa">
             <option value="">Guztiak</option>
-            <option value="1" <?= $sekzioa=="1"?"selected":"" ?>>Ordenagailuak</option>
-            <option value="2" <?= $sekzioa=="2"?"selected":"" ?>>Kamarak</option>
-            <option value="3" <?= $sekzioa=="3"?"selected":"" ?>>Kontsolak</option>
-            <option value="4" <?= $sekzioa=="4"?"selected":"" ?>>Audiobisualak</option>
-            <option value="5" <?= $sekzioa=="5"?"selected":"" ?>>Teklatuak</option>
+            <option value="1" <?= $sekzioa == "1" ? "selected" : "" ?>>Ordenagailuak</option>
+            <option value="2" <?= $sekzioa == "2" ? "selected" : "" ?>>Kamarak</option>
+            <option value="3" <?= $sekzioa == "3" ? "selected" : "" ?>>Kontsolak</option>
+            <option value="4" <?= $sekzioa == "4" ? "selected" : "" ?>>Audiobisualak</option>
+            <option value="5" <?= $sekzioa == "5" ? "selected" : "" ?>>Teklatuak</option>
           </select>
 
           <label>Marka</label>
           <select name="marka">
             <option value="">Guztiak</option>
-            <option value="Sony" <?= $marka=="Sony"?"selected":"" ?>>Sony</option>
-            <option value="Dell" <?= $marka=="Dell"?"selected":"" ?>>Dell</option>
-            <option value="Logitech" <?= $marka=="Logitech"?"selected":"" ?>>Logitech</option>
-            </select>
+            <option value="Sony" <?= $marka == "Sony" ? "selected" : "" ?>>Sony</option>
+            <option value="Dell" <?= $marka == "Dell" ? "selected" : "" ?>>Dell</option>
+            <option value="Logitech" <?= $marka == "Logitech" ? "selected" : "" ?>>Logitech</option>
+          </select>
 
           <label>Prezio max</label>
           <input type="number" name="max" value="<?= $max ?>">
@@ -79,10 +81,10 @@
         <section class="SekzioarenTitulua">
           <div class="SekzioTitulua">
             <h2>
-                <?php 
-                    if ($q != "") echo "EMAITZAK: " . htmlspecialchars($q);
-                    else echo "PRODUKTUAK";
-                ?>
+              <?php
+              if ($q != "") echo "EMAITZAK: " . htmlspecialchars($q);
+              else echo "PRODUKTUAK";
+              ?>
             </h2>
           </div>
         </section>
@@ -102,12 +104,13 @@
                   </div>
               <?php endwhile; ?>
           <?php else: ?>
-              <p style="color: black; grid-column: span 2; padding: 20px;">
-                  Ez da produkturik aurkitu bilaketa horrekin.
-              </p>
+            <p style="color: black; grid-column: span 2; padding: 20px;">
+              Ez da produkturik aurkitu bilaketa horrekin.
+            </p>
           <?php endif; ?>
         </div>
       </main>
     </div>
-  </body>
+</body>
+
 </html>
