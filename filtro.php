@@ -1,6 +1,4 @@
 <?php
-$konexioa = new mysqli("localhost", "root", "1MG32025", "bigarrenerronka");
-
 $q        = $_GET['q'] ?? "";
 $sekzioa  = $_GET['sekzioa'] ?? "";
 $marka    = $_GET['marka'] ?? "";
