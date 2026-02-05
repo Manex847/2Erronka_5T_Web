@@ -14,10 +14,10 @@
     <div class="sidebar" id="sidebar">
         <button class="close-btn">×</button>
         <nav class="sidebar-nav">
-            <a href="login.html">SAIOA HASI</a>
+            <a href="Login.php">SAIOA HASI</a>
             <a href="berriak.html">BERRIAK</a>
-            <a href="produktuak.html">GURE PRODUKTUAK</a>
-            <a href="formularioa.html">KUDEAKETAK</a>
+            <a href="Produktuak.php">GURE PRODUKTUAK</a>
+            <a href="Formularioa.php">KUDEAKETAK</a>
             <a href="kontaktua.html">KONTAKTUA</a>
         </nav>
     </div>

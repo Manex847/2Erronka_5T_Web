@@ -7,46 +7,18 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/png" href="ikonoa_header.png">
 </head>
-<!-- ===================================================================================================================-->
-<!-- ===================================================================================================================-->
 <body class="kontaktua_gorputza">
 
   
   <header class="goiburua">
-    <a href="kontaktua_ing.html" class="hizkuntza_botoia" aria-label="Change language to English">EN</a>
-    <div>
-      <a class="logoa" href="index.html">BIRTEK
-      <img src="ikonoa_header.png" alt="Logo Birtek" style="height: 24px; margin-left: 8px;">
-      </a>
-    </div>
-    <div id="erlojua" class="erloju_digitala"></div>
+    <?php
+    include "Menua.php";
+    ?>
   </header>
-<!-- ===================================================================================================================-->
-  <!-- Nabigazio nagusia -->
-  <nav class ="nabigatzailea">
-      <a href="login.html">SAIOA HASI</a>
-      <a href="berriak.html">BERRIAK</a>
-      <a href="produktuak.html">GURE PRODUKTUAK</a>
-      <li class="dropdown"> <a href="formularioa.html" class="dropbtn">KUDEAKETAK</a>
-        <div class="dropdown-content">
-          <a href="hornitzaile_bihurtu.html">HORNITZAILE BIHURTU</a>
-          <a href="bezeroa_bihurtu.html">BEZEROA BIHURTU</a>
-          <a href="langile_bihurtu.html">LANGILE BIHURTU</a>
-        </div>
-      </li>
-      <a href="kontaktua.html">KONTAKTUA</a>
-  </nav>
-<!-- ===================================================================================================================-->
 
-<!-- ===================================================================================================================-->
-
-<!-- FORMULARIOA + MAPA -->
   <section class="kontaktua_sekzioa">
     <div class="kontaktua_edukia">
       <form class="kontaktua_formularioa">
-        <h2>Jarri harremanetan gurekin</h2><br>
-        <p>Laguntzeko hemen gaude.<br> Bete formularioa edota etorri bisitan gure kokakunera.</p>
-
         <label for="izena">Izena</label>
         <input type="text" id="izena" name="izena" required>
 
@@ -69,8 +41,7 @@
       </div>
     </div>
   </section>
-
-      <!-- Footer -->
+ 
     <footer class="azpioina">
       <p>&copy; 2025 BirTek. Eskubide guztiak erreserbatuak.</p>
     <ul>
