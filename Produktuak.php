@@ -10,86 +10,102 @@
   <body>
     <?php
     include "Menua.html";
-    include "filtro.php";
     ?>
+    <?php
+    $konexioa = new mysqli("localhost", "root", "1MG32025", "bigarrenerronka");
+
+    $q        = $_GET['q'] ?? "";
+    $sekzioa  = $_GET['sekzioa'] ?? "";
+    $marka    = $_GET['marka'] ?? "";
+    $min      = $_GET['min'] ?? "";
+    $max      = $_GET['max'] ?? "";
+
+    $sql = "SELECT * FROM produktuak WHERE 1=1";
+
+    if ($q !== "") {
+        $sql .= " AND (izena LIKE '%$q%' OR modeloa LIKE '%$q%' OR marka LIKE '%$q%')";
+    }
+    if ($sekzioa !== "") {
+        $sql .= " AND sekzioa = $sekzioa";
+    }
+    if ($marka !== "") {
+        $sql .= " AND marka = '$marka'";
+    }
+    if ($min !== "") {
+        $sql .= " AND prezioa >= $min";
+    }
+    if ($max !== "") {
+        $sql .= " AND prezioa <= $max";
+    }
+
+    $ema = $konexioa->query($sql);
+    ?>
+
     <div class="eduki_nagusia">
-  
-  <main class="main-produktuak">
-    <main>
-      <section class="SekzioarenTitulua">
-        <div class="SekzioTitulua"><h2>ORDENAGAILUAK</h2></div>
-      </section>
-      <section class="Ordenagailuak">
-        <div class="ProduktuZerrenda">
-          <div class="Produktuak"><img src="Argazkiak/ordenagailu_1.jpg" width="80%" height="80%" /><h3>DELL OPTIPLEX 7010</h3><button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button></div>
-          <div class="Produktuak"><img src="Argazkiak/ordenagailu_2.jpg" width="80%" height="80%" /><h3>LENOVO THINKPAD E15</h3><button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button></div>
-          <div class="Produktuak"><img src="Argazkiak/ordenagailu_3.jpg" width="80%" height="80%" /><h3>ASUS TUF F15</h3><button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button></div>
-          <div class="Produktuak"><img src="Argazkiak/ordenagailu_4.jpg" width="80%" height="80%" /><h3>INTEL NUC 11</h3><button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button></div>
-          <div class="Produktuak"><img src="Argazkiak/ordenagailu_5.jpg" width="80%" height="80%" /><h3>APPLE IMAC 24</h3><button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button></div>
-          <div class="Produktuak"><img src="Argazkiak/ordenagailu_6.webp" width="80%" height="80%" /><h3>DELL POWEREDGE T40</h3><button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button></div>
-          <div class="Produktuak"><img src="Argazkiak/ordenagailu_7.jpg" width="80%" height="80%" /><h3>ASUS VIVOBOOK 15</h3><button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button></div>
-        </div>
-      </section>
+      <aside class="filtro">
+        <h3>Filtratu</h3>
+        <form method="GET">
+          <label>Bilatu</label>
+          <input type="text" name="q" placeholder="Izena, modeloa..." value="<?= htmlspecialchars($q) ?>">
 
-      <section class="SekzioarenTitulua">
-        <div class="SekzioTitulua"><h2>KAMARAK</h2></div>
-      </section>
-      <section class="Kamarak">
-        <div class="ProduktuZerrenda">
-          <div class="Produktuak"><img src="Argazkiak/kamara_1.avif" width="80%" height="80%" /><h3>CANON EOS 250D</h3><button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button></div>
-          <div class="Produktuak"><img src="Argazkiak/kamara_2.jpg" width="80%" height="80%" /><h3>SONY ALPHA A6400</h3><button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button></div>
-          <div class="Produktuak"><img src="Argazkiak/kamara_3.webp" width="80%" height="80%" /><h3>ALEXA ARRI MINI</h3><button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button></div>
-          <div class="Produktuak"><img src="Argazkiak/kamara_4.webp" width="80%" height="80%" /><h3>GOPRO HERO 11</h3><button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button></div>
-          <div class="Produktuak"><img src="Argazkiak/kamara_5.webp" width="80%" height="80%" /><h3>PANASONIC LUMIX FZ82</h3><button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button></div>
-          <div class="Produktuak"><img src="Argazkiak/kamara_6.webp" width="80%" height="80%" /><h3>FUJIFILM INSTAX MINI 12</h3><button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button></div>
-          <div class="Produktuak"><img src="Argazkiak/kamara_7.webp" width="80%" height="80%" /><h3>NIKON Z6 II</h3><button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button></div>
-        </div>
-      </section>
+          <label>Sekzioa</label>
+          <select name="sekzioa">
+            <option value="">Guztiak</option>
+            <option value="1" <?= $sekzioa=="1"?"selected":"" ?>>Ordenagailuak</option>
+            <option value="2" <?= $sekzioa=="2"?"selected":"" ?>>Kamarak</option>
+            <option value="3" <?= $sekzioa=="3"?"selected":"" ?>>Kontsolak</option>
+            <option value="4" <?= $sekzioa=="4"?"selected":"" ?>>Audiobisualak</option>
+            <option value="5" <?= $sekzioa=="5"?"selected":"" ?>>Teklatuak</option>
+          </select>
 
-      <section class="SekzioarenTitulua">
-        <div class="SekzioTitulua"><h2>KONTSOLAK</h2></div>
-      </section>
-      <section class="Kontsolak">
-        <div class="ProduktuZerrenda">
-          <div class="Produktuak"><img src="Argazkiak/kontsola_1.webp" width="80%" height="80%" /><h3>SONY PLAYSTATION 5</h3><button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button></div>
-          <div class="Produktuak"><img src="Argazkiak/kontsola_2.webp" width="80%" height="80%" /><h3>MICROSOFT XBOX SERIES X</h3><button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button></div>
-          <div class="Produktuak"><img src="Argazkiak/kontsola_3.jpg" width="80%" height="80%" /><h3>NINTENDO SWITCH OLED</h3><button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button></div>
-          <div class="Produktuak"><img src="Argazkiak/kontsola_4.webp" width="80%" height="80%" /><h3>SEGA MEGA DRIVE MINI</h3><button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button></div>
-          <div class="Produktuak"><img src="Argazkiak/kontsola_5.png" width="80%" height="80%" /><h3>VALVE STEAM DECK</h3><button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button></div>
-          <div class="Produktuak"><img src="Argazkiak/kontsola_6.jpg" width="80%" height="80%" /><h3>SONY PLAYSTATION 4 SLIM</h3><button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button></div>
-          <div class="Produktuak"><img src="Argazkiak/kontsola_7.webp" width="80%" height="80%" /><h3>MICROSOFT XBOX SERIES S</h3><button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button></div>
-        </div>
-      </section>
+          <label>Marka</label>
+          <select name="marka">
+            <option value="">Guztiak</option>
+            <option value="Sony" <?= $marka=="Sony"?"selected":"" ?>>Sony</option>
+            <option value="Dell" <?= $marka=="Dell"?"selected":"" ?>>Dell</option>
+            <option value="Logitech" <?= $marka=="Logitech"?"selected":"" ?>>Logitech</option>
+            </select>
 
-      <section class="SekzioarenTitulua">
-        <div class="SekzioTitulua"><h2>AUDIOBISUAL PERIFERIKOAK</h2></div>
-      </section>
-      <section class="Periferikoak">
-        <div class="ProduktuZerrenda">
-          <div class="Produktuak"><img src="Argazkiak/periferiko_1.webp" height="80%" /><h3>SONY WH-1000XM5</h3><button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button></div>
-          <div class="Produktuak"><img src="Argazkiak/periferiko_2.webp" width="80%" height="80%" /><h3>JBL CHARGE 5</h3><button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button></div>
-          <div class="Produktuak"><img src="Argazkiak/periferiko_3.webp" width="80%" height="80%" /><h3>LOGITECH BLUE YETI</h3><button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button></div>
-          <div class="Produktuak"><img src="Argazkiak/periferiko_4.webp" width="80%" height="80%" /><h3>SAMSUNG HW-Q800B</h3><button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button></div>
-          <div class="Produktuak"><img src="Argazkiak/periferiko_5.jpg" width="80%" height="80%" /><h3>LOGITECH C920 HD PRO</h3><button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button></div>
-          <div class="Produktuak"><img src="Argazkiak/periferiko_6.webp" width="80%" height="80%" /><h3>HYPERX CLOUD II</h3><button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button></div>
-          <div class="Produktuak"><img src="Argazkiak/periferiko_7.webp" width="80%" height="80%" /><h3>DELL ULTRASHARP U2720Q</h3><button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button></div>
-        </div>
-      </section>
+          <label>Prezio max</label>
+          <input type="number" name="max" value="<?= $max ?>">
 
-      <section class="SekzioarenTitulua">
-        <div class="SekzioTitulua"><h2>TEKLATUAK</h2></div>9
-      </section>
-      <section class="Teklatuak">
+          <button type="submit">Aplikatu</button>
+        </form>
+      </aside>
+
+      <main class="main-produktuak">
+        <section class="SekzioarenTitulua">
+          <div class="SekzioTitulua">
+            <h2>
+                <?php 
+                    if ($q != "") echo "EMAITZAK: " . htmlspecialchars($q);
+                    else echo "PRODUKTUAK";
+                ?>
+            </h2>
+          </div>
+        </section>
+
         <div class="ProduktuZerrenda">
-          <div class="Produktuak"><img src="Argazkiak/teklatu_1.webp" width="80%" height="80%" /><h3>CORSAIR K95 RGB</h3><button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button></div>
-          <div class="Produktuak"><img src="Argazkiak/teklatu_2.webp" width="80%" height="80%" /><h3>RAZER BLACKWIDOW V3</h3><button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button></div>
-          <div class="Produktuak"><img src="Argazkiak/teklatu_3.webp" width="80%" height="80%" /><h3>LOGITECH MX KEYS</h3><button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button></div>
-          <div class="Produktuak"><img src="Argazkiak/teklatu_4.jpg" width="80%" height="80%" /><h3>OBINS ANNE PRO 2</h3><button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button></div>
-          <div class="Produktuak"><img src="Argazkiak/teklatu_5.webp" width="80%" height="80%" /><h3>LOGITECH K860</h3><button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button></div>
-          <div class="Produktuak"><img src="Argazkiak/teklatu_6.jpg" width="80%" height="80%" /><h3>DUCKY ONE 3</h3><button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button></div>
-          <div class="Produktuak"><img src="Argazkiak/teklatu_7.webp" width="80%" height="80%" /><h3>LOGITECH K120</h3><button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button></div>
+          <?php if ($ema->num_rows > 0): ?>
+              <?php while($row = $ema->fetch_assoc()): ?>
+                  <div class="Produktuak">
+                    <div class="produktu_argazkia">
+                      <img class="" src="Argazkiak/<?= $row['argazkia'] ?>" alt="<?= $row['izena'] ?>" />
+                      </div>
+                      <div class="produktu-titulua">
+                      <h3><?= $row['izena'] ?></h3>
+                      <p><strong><?= $row['prezioa'] ?> €</strong></p>
+                      <button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button>
+                    </div>
+                  </div>
+              <?php endwhile; ?>
+          <?php else: ?>
+              <p style="color: black; grid-column: span 2; padding: 20px;">
+                  Ez da produkturik aurkitu bilaketa horrekin.
+              </p>
+          <?php endif; ?>
         </div>
-      </section>
-    </main>
+      </main>
+    </div>
   </body>
 </html>
