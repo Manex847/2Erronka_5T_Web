@@ -91,23 +91,18 @@
 
         <div class="ProduktuZerrenda">
           <?php if ($ema->num_rows > 0): ?>
-            <?php while ($row = $ema->fetch_assoc()): ?>
-              <div class="Produktuak">
-
-                <div class="produktu_argazkia">
-                  <img class="" src="Argazkiak/<?= $row['argazkia'] ?>" alt="<?= $row['izena'] ?>" />
-                </div>
-                <div class="produktu-titulua">
-                  <h3><?= $row['izena'] ?></h3>
-                  <p><strong><?= $row['prezioa'] ?> €</strong></p>
-                  <button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button>
-                </div>
-                <img src="Argazkiak/<?= $row['argazkia'] ?>" alt="<?= $row['izena'] ?>" />
-                <h3><?= $row['izena'] ?></h3>
-                <p><strong><?= $row['prezioa'] ?> €</strong></p>
-                <button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button>
-              </div>
-            <?php endwhile; ?>
+              <?php while($row = $ema->fetch_assoc()): ?>
+                  <div class="Produktuak">
+                    <div class="produktu_argazkia">
+                      <img class="" src="Argazkiak/<?= $row['argazkia'] ?>" alt="<?= $row['izena'] ?>" />
+                      </div>
+                      <div class="produktu-titulua">
+                      <h3><?= $row['izena'] ?></h3>
+                      <p><strong><?= $row['prezioa'] ?> €</strong></p>
+                      <button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button>
+                    </div>
+                  </div>
+              <?php endwhile; ?>
           <?php else: ?>
             <p style="color: black; grid-column: span 2; padding: 20px;">
               Ez da produkturik aurkitu bilaketa horrekin.
