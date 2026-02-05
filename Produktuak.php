@@ -12,8 +12,10 @@
     include "Menua.html";
     ?>
     <?php
-    $konexioa = new mysqli("localhost", "root", "1MG32025", "bigarrenerronka");
-
+    include "Konexioa.php";
+    ?>
+    <div class="eduki_nagusia">
+  <?php
     $q        = $_GET['q'] ?? "";
     $sekzioa  = $_GET['sekzioa'] ?? "";
     $marka    = $_GET['marka'] ?? "";
@@ -41,7 +43,7 @@
     $ema = $konexioa->query($sql);
     ?>
 
-    <div class="eduki_nagusia">
+    <div class="contenido-principal">
       <aside class="filtro">
         <h3>Filtratu</h3>
         <form method="GET">
@@ -89,6 +91,7 @@
           <?php if ($ema->num_rows > 0): ?>
               <?php while($row = $ema->fetch_assoc()): ?>
                   <div class="Produktuak">
+<<<<<<< HEAD
                     <div class="produktu_argazkia">
                       <img class="" src="Argazkiak/<?= $row['argazkia'] ?>" alt="<?= $row['izena'] ?>" />
                       </div>
@@ -97,6 +100,12 @@
                       <p><strong><?= $row['prezioa'] ?> €</strong></p>
                       <button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button>
                     </div>
+=======
+                      <img src="Argazkiak/<?= $row['argazkia'] ?>" alt="<?= $row['izena'] ?>" />
+                      <h3><?= $row['izena'] ?></h3>
+                      <p><strong><?= $row['prezioa'] ?> €</strong></p>
+                      <button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button>
+>>>>>>> odei
                   </div>
               <?php endwhile; ?>
           <?php else: ?>
