@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BirtekIndex</title>
+  <title>BirtekProduktuak</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 </head>
@@ -16,6 +16,7 @@
   <?php
   include "Konexioa.php";
   ?>
+
   <div class="eduki_nagusia">
     <?php
     $q        = $_GET['q'] ?? "";
@@ -91,18 +92,18 @@
 
         <div class="ProduktuZerrenda">
           <?php if ($ema->num_rows > 0): ?>
-              <?php while($row = $ema->fetch_assoc()): ?>
-                  <div class="Produktuak">
-                    <div class="produktu_argazkia">
-                      <img class="" src="Argazkiak/<?= $row['argazkia'] ?>" alt="<?= $row['izena'] ?>" />
-                      </div>
-                      <div class="produktu-titulua">
-                      <h3><?= $row['izena'] ?></h3>
-                      <p><strong><?= $row['prezioa'] ?> €</strong></p>
-                      <button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button>
-                    </div>
-                  </div>
-              <?php endwhile; ?>
+            <?php while ($row = $ema->fetch_assoc()): ?>
+              <div class="Produktuak">
+                <div class="produktu_argazkia">
+                  <img src="Argazkiak/<?= $row['argazkia'] ?>" alt="<?= $row['izena'] ?>" />
+                </div>
+                <div class="produktu-titulua">
+                  <h3><?= $row['izena'] ?></h3>
+                  <p><strong><?= $row['prezioa'] ?> €</strong></p>
+                    <button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button>
+                </div>
+              </div>
+            <?php endwhile; ?>
           <?php else: ?>
             <p style="color: black; grid-column: span 2; padding: 20px;">
               Ez da produkturik aurkitu bilaketa horrekin.

@@ -1,3 +1,4 @@
+
 *{
     margin: 0px;
 }
@@ -237,6 +238,76 @@ header h1 {
     cursor: pointer;
 }
 
+
+/*FORMULARIOA*/
+
+.Formularioa{
+    color: black;
+    place-items: center;
+    background-color: lightgrey;
+}
+.formulario-container{
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.26);
+    background-color: white;
+    max-width: 400px;
+    padding: 20px;
+    margin-top: 50px;
+    border-radius: 10px;
+}
+
+.formulario-datuak{
+    background-color: lightgreen;
+}
+
+/* berriak: */
+       
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 30px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            color: black;
+        }
+
+        .berria {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            color: black;
+        }
+
+        .berria img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .edukia {
+            padding: 15px 20px;
+        }
+
+        .titulua {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: black;
+        }
+
+        .data {
+            color: black;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        p{
+            color: black;
+            font-size: 16px;
+            line-height: 1.4;
+        }
+    
 @media (min-width: 1024px) {
     .DispositibaMultzoa {
         max-width: 800px;
