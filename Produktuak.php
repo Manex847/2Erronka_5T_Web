@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BirtekProduktuak</title>
+  <title>BirtekIndex</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 </head>
@@ -16,7 +16,6 @@
   <?php
   include "Konexioa.php";
   ?>
-
   <div class="eduki_nagusia">
     <?php
     $q        = $_GET['q'] ?? "";
@@ -46,39 +45,38 @@
     $ema = $konexioa->query($sql);
     ?>
 
-    <div class="contenido-principal">
-      <aside class="filtro">
-        <h3>Filtratu</h3>
-        <form method="GET">
-          <label>Bilatu</label>
-          <input type="text" name="q" placeholder="Izena, modeloa..." value="<?= htmlspecialchars($q) ?>">
-
-          <label>Sekzioa</label>
-          <select name="sekzioa">
-            <option value="">Guztiak</option>
-            <option value="1" <?= $sekzioa == "1" ? "selected" : "" ?>>Ordenagailuak</option>
-            <option value="2" <?= $sekzioa == "2" ? "selected" : "" ?>>Kamarak</option>
-            <option value="3" <?= $sekzioa == "3" ? "selected" : "" ?>>Kontsolak</option>
-            <option value="4" <?= $sekzioa == "4" ? "selected" : "" ?>>Audiobisualak</option>
-            <option value="5" <?= $sekzioa == "5" ? "selected" : "" ?>>Teklatuak</option>
-          </select>
-
-          <label>Marka</label>
-          <select name="marka">
-            <option value="">Guztiak</option>
-            <option value="Sony" <?= $marka == "Sony" ? "selected" : "" ?>>Sony</option>
-            <option value="Dell" <?= $marka == "Dell" ? "selected" : "" ?>>Dell</option>
-            <option value="Logitech" <?= $marka == "Logitech" ? "selected" : "" ?>>Logitech</option>
-          </select>
-
-          <label>Prezio max</label>
-          <input type="number" name="max" value="<?= $max ?>">
-
-          <button type="submit">Aplikatu</button>
-        </form>
-      </aside>
-
+    
       <main class="main-produktuak">
+        <div class="filtro" width="300px">
+          <h3>Filtratu</h3>
+          <form method="GET">
+            <label>Bilatu</label>
+            <input type="text" name="q" placeholder="Izena, modeloa..." value="<?= htmlspecialchars($q) ?>">
+
+            <label>Sekzioa</label>
+            <select name="sekzioa">
+              <option value="">Guztiak</option>
+              <option value="1" <?= $sekzioa == "1" ? "selected" : "" ?>>Ordenagailuak</option>
+              <option value="2" <?= $sekzioa == "2" ? "selected" : "" ?>>Kamarak</option>
+              <option value="3" <?= $sekzioa == "3" ? "selected" : "" ?>>Kontsolak</option>
+              <option value="4" <?= $sekzioa == "4" ? "selected" : "" ?>>Audiobisualak</option>
+              <option value="5" <?= $sekzioa == "5" ? "selected" : "" ?>>Teklatuak</option>
+            </select>
+
+            <label>Marka</label>
+            <select name="marka">
+              <option value="">Guztiak</option>
+              <option value="Sony" <?= $marka == "Sony" ? "selected" : "" ?>>Sony</option>
+              <option value="Dell" <?= $marka == "Dell" ? "selected" : "" ?>>Dell</option>
+              <option value="Logitech" <?= $marka == "Logitech" ? "selected" : "" ?>>Logitech</option>
+            </select>
+
+            <label>Prezio max</label>
+            <input type="number" name="max" value="<?= $max ?>">
+
+            <button type="submit">Aplikatu</button>
+          </form>
+        </div>
         <section class="SekzioarenTitulua">
           <div class="SekzioTitulua">
             <h2>
@@ -95,12 +93,14 @@
             <?php while ($row = $ema->fetch_assoc()): ?>
               <div class="Produktuak">
                 <div class="produktu_argazkia">
-                  <img src="Argazkiak/<?= $row['argazkia'] ?>" alt="<?= $row['izena'] ?>" />
+                  <img class="" src="Argazkiak/<?= $row['argazkia'] ?>" alt="<?= $row['izena'] ?>" />
                 </div>
                 <div class="produktu-titulua">
                   <h3><?= $row['izena'] ?></h3>
                   <p><strong><?= $row['prezioa'] ?> €</strong></p>
-                    <button class="ErosiBotoia"><strong>GEHITU SASKIRA</strong></button>
+                </div>
+                <div class="ErosiBotoia">
+                  <button><strong>GEHITU SASKIRA</strong></button>
                 </div>
               </div>
             <?php endwhile; ?>
@@ -111,7 +111,7 @@
           <?php endif; ?>
         </div>
       </main>
-    </div>
+    
 </body>
 
 </html>

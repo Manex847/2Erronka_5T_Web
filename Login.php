@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <header>
         <?php 
-        include "Menua.php";
+        include "Menua.html";
         ?>
         <h2>Saioa hasi</h2>
     </header>
