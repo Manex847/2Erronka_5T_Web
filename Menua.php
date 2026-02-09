@@ -13,12 +13,11 @@ if (session_status() === PHP_SESSION_NONE) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-<body>
     <div class="sidebar" id="sidebar">
         <button class="close-btn">×</button>
         <nav class="sidebar-nav">
             <?php if (isset($_SESSION['erabiltzailea'])): ?>
-                <a href="Logout.php" style="color: #ff4d4d;">SAIOA ITXI (<?php echo $_SESSION['erabiltzailea']; ?>)</a>
+                <a href="Logout.php">SAIOA ITXI (<?php echo $_SESSION['erabiltzailea']; ?>)</a>
             <?php else: ?>
                 <a href="Login.php">SAIOA HASI</a>
             <?php endif; ?>
@@ -36,7 +35,7 @@ if (session_status() === PHP_SESSION_NONE) {
         </button>
 
         <?php if (isset($_SESSION['erabiltzailea'])): ?>
-            <div style="color: white; font-weight: bold; margin-left: 20px; flex-grow: 1;">
+            <div>
                 Kaixo, <?php echo $_SESSION['erabiltzailea']; ?>!
             </div>
         <?php endif; ?>
@@ -49,5 +48,4 @@ if (session_status() === PHP_SESSION_NONE) {
             $("#sidebar").toggleClass("active");
         });
     </script>
-</body>
 </html>

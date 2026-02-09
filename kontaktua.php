@@ -1,22 +1,11 @@
 <!doctype html>
 <html lang="eus">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BirTek - Kontaktua</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="icon" type="image/png" href="ikonoa_header.png">
-</head>
-
 <body class="kontaktua_gorputza">
 
-  <header>
     <?php
     include "Menua.php";
     ?>
-  </header>
-
   <section class="kontaktua_sekzioa">
 
     <div class="kontaktua_edukia">

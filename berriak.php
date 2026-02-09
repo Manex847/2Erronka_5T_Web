@@ -12,13 +12,10 @@
 
 <body>
 
-    <header>
+
         <?php
         include "Menua.php";
         ?>
-    </header>
-
-
     <div class="container">
 
         <div class="berria">
