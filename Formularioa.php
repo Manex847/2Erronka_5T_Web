@@ -9,7 +9,7 @@
 
 <body class="Formularioa">
     <?php
-    include "Menua.html";
+    include "Menua.php";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $servidor = "localhost";

@@ -12,7 +12,7 @@
 
 <body>
   <?php
-  include "Menua.html";
+  include "Menua.php";
   ?>
   <?php
   include "Konexioa.php";

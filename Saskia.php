@@ -1,26 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saskia</title>
 </head>
-
 <body>
     <?php
     session_start();
-    include "Menua.html";
+    include "Menua.php";
     ?>
     <!DOCTYPE html>
     <html lang="eu">
-
     <head>
         <meta charset="UTF-8">
         <title>Zure Saskia</title>
         <link rel="stylesheet" href="styles.css">
     </head>
-
     <body>
         <div class="saskia-gorputza">
             <div class="saskia">
@@ -63,9 +59,6 @@
             </div>
         </div>
     </body>
-
     </html>
-
 </body>
-
 </html>

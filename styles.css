@@ -67,9 +67,10 @@ header h1 {
     height: 100%;
     background-color: rgba(81, 255, 0, 0.411);
     backdrop-filter: blur(10px);
-    z-index: 1001;
+    z-index: 9999;
     transition: 0.3s ease-in-out;
     padding: 80px 20px 20px;
+    
 }
 
 .sidebar.active {
@@ -141,6 +142,13 @@ header h1 {
     padding: 15px;
     margin-top: 5px;
 }
+
+.Asoziatuak{
+    background-color: white;
+    margin-top: 20px;
+}
+
+
 
 /*TXARTELAK*/
 
@@ -370,18 +378,115 @@ header h1 {
         justify-content: center;
     }
 
-    
 
-    @media (min-width: 1024px) {
-    .DispositibaMultzoa {
-        max-width: 800px;
-        margin: 0 auto;
+    /*KONTAKTUA*/
+
+    .kontaktua_gorputza {
+    display: flex;
+    flex-direction: column;
+    min-height: 100px;
+}
+
+.kontaktua_sekzioa {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.kontaktua_edukia {
+    background-color: white;
+    width: 350px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 10px 10px 15px rgba(128, 128, 128, 0.438);
+    color: black;
+}
+
+.kontaktua_edukia h3 {
+    text-align: center;
+    color: rgb(9, 199, 9);
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+.kontaktua_formularioa {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.kontaktua_formularioa label {
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.kontaktua_formularioa input, 
+.kontaktua_formularioa textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Segoe UI', sans-serif;
+    box-sizing: border-box;
+}
+
+.kontaktua_formularioa textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.kontaktua_formularioa .btn {
+    background-color: rgb(0, 255, 0);
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.kontaktua_mapa {
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.azpioina {
+    background: rgba(53, 226, 0, 0.774);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    text-align: center;
+    color: white;
+    margin-top: auto;
+}
+
+.azpioina p {
+    color: white;
+}
+
+.azpioina ul {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+}
+
+.azpioina ul a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+@media (min-width: 768px) {
+    .kontaktua_edukia {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
     }
-
-    .DispositibaMultzoa img {
-        width: 100%;
-        max-width: 700px;
-        height: 350px;
-        margin: 0 auto;
+    
+    .kontaktua_edukia h3 {
+        grid-column: span 2;
     }
 }
