@@ -23,7 +23,7 @@ body {
 }
 
 header {
-    position: fixed !important;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -99,6 +99,7 @@ header h1 {
     background-color: rgb(9, 199, 9);
     padding: 50px 10px;
     text-align: center;
+    color: white;
 }
 
 .SliderMain {
@@ -144,8 +145,6 @@ header h1 {
 /*TXARTELAK*/
 
 .Produktuak{
-    text-align: center;
-    place-items: center;
     border-radius: 15px;
     padding: 5px;
     color: black;
@@ -159,7 +158,6 @@ header h1 {
     width: 60%;
     height: auto;
     margin-top: 10px;
-    
 }
 
 .ProduktuZerrenda{
@@ -180,35 +178,29 @@ header h1 {
 }
 .produktu-titulua{
     height: 80px;
+    
 }
 
 .ErosiBotoia{
-    display:flex;
-    flex-direction: column;
-    background-color: rgb(9, 199, 9);
-    border: none;
-    padding: 20px 50px;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-    width: 40%;
-    height: 15%;
-    margin-bottom: 5px;
-    text-align: center;
-    place-items: center;
+    display: flex;
     justify-content: center;
-    color: rgb(255, 255, 255);
-}   
+}  
+
+.ErosiBotoia button{
+    background-color: rgb(0, 255, 0);
+    border: 0px;
+    padding: 10px;
+    cursor: pointer;
+}
 
 .filtro {
-    width: 220px;
+    width: 350px;
     background-color: rgba(255,255,255,0.9);
     color: black;
     padding: 20px;
+    margin-bottom: 10px;
     border-radius: 10px;
     height: fit-content;
-    position: sticky;
-    top: 90px;
     box-shadow: 5px 5px 15px rgba(0,0,0,0.15);
 }
 
@@ -233,7 +225,6 @@ header h1 {
     width: 100%;
     padding: 10px;
     background-color: rgb(9, 199, 9);
-    border: none;
     color: white;
     cursor: pointer;
 }
@@ -308,7 +299,56 @@ header h1 {
             line-height: 1.4;
         }
     
-@media (min-width: 1024px) {
+/* berriak: */
+       
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 30px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            color: black;
+        }
+
+        .berria {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            color: black;
+        }
+
+        .berria img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .edukia {
+            padding: 15px 20px;
+        }
+
+        .titulua {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: black;
+        }
+
+        .data {
+            color: black;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        p{
+            color: black;
+            font-size: 16px;
+            line-height: 1.4;
+        }
+
+    @media (min-width: 1024px) {
     .DispositibaMultzoa {
         max-width: 800px;
         margin: 0 auto;
