@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="eu">
 
@@ -23,6 +24,7 @@
     $marka    = $_GET['marka'] ?? "";
     $min      = $_GET['min'] ?? "";
     $max      = $_GET['max'] ?? "";
+    $id       = $_GET['id'] ?? "";
 
     $sql = "SELECT * FROM produktuak WHERE 1=1";
 
@@ -41,77 +43,84 @@
     if ($max !== "") {
       $sql .= " AND prezioa <= $max";
     }
+    if ($id !== "") {
+      $sql .= " AND id = $id";
+    }
 
     $ema = $konexioa->query($sql);
     ?>
 
-    
-      <main class="main-produktuak">
-        <div class="filtro" width="300px">
-          <h3>Filtratu</h3>
-          <form method="GET">
-            <label>Bilatu</label>
-            <input type="text" name="q" placeholder="Izena, modeloa..." value="<?= htmlspecialchars($q) ?>">
 
-            <label>Sekzioa</label>
-            <select name="sekzioa">
-              <option value="">Guztiak</option>
-              <option value="1" <?= $sekzioa == "1" ? "selected" : "" ?>>Ordenagailuak</option>
-              <option value="2" <?= $sekzioa == "2" ? "selected" : "" ?>>Kamarak</option>
-              <option value="3" <?= $sekzioa == "3" ? "selected" : "" ?>>Kontsolak</option>
-              <option value="4" <?= $sekzioa == "4" ? "selected" : "" ?>>Audiobisualak</option>
-              <option value="5" <?= $sekzioa == "5" ? "selected" : "" ?>>Teklatuak</option>
-            </select>
+    <main class="main-produktuak">
+      <div class="filtro" width="300px">
+        <h3>Filtratu</h3>
+        <form method="GET">
+          <label>Bilatu</label>
+          <input type="text" name="q" placeholder="Izena, modeloa..." value="<?= htmlspecialchars($q) ?>">
 
-            <label>Marka</label>
-            <select name="marka">
-              <option value="">Guztiak</option>
-              <option value="Sony" <?= $marka == "Sony" ? "selected" : "" ?>>Sony</option>
-              <option value="Dell" <?= $marka == "Dell" ? "selected" : "" ?>>Dell</option>
-              <option value="Logitech" <?= $marka == "Logitech" ? "selected" : "" ?>>Logitech</option>
-            </select>
+          <label>Sekzioa</label>
+          <select name="sekzioa">
+            <option value="">Guztiak</option>
+            <option value="1" <?= $sekzioa == "1" ? "selected" : "" ?>>Ordenagailuak</option>
+            <option value="2" <?= $sekzioa == "2" ? "selected" : "" ?>>Kamarak</option>
+            <option value="3" <?= $sekzioa == "3" ? "selected" : "" ?>>Kontsolak</option>
+            <option value="4" <?= $sekzioa == "4" ? "selected" : "" ?>>Audiobisualak</option>
+            <option value="5" <?= $sekzioa == "5" ? "selected" : "" ?>>Teklatuak</option>
+          </select>
 
-            <label>Prezio max</label>
-            <input type="number" name="max" value="<?= $max ?>">
+          <label>Marka</label>
+          <select name="marka">
+            <option value="">Guztiak</option>
+            <option value="Sony" <?= $marka == "Sony" ? "selected" : "" ?>>Sony</option>
+            <option value="Dell" <?= $marka == "Dell" ? "selected" : "" ?>>Dell</option>
+            <option value="Logitech" <?= $marka == "Logitech" ? "selected" : "" ?>>Logitech</option>
+          </select>
 
-            <button type="submit">Aplikatu</button>
-          </form>
+          <label>Prezio max</label>
+          <input type="number" name="max" value="<?= $max ?>">
+
+          <button type="submit">Aplikatu</button>
+        </form>
+      </div>
+      <section class="SekzioarenTitulua">
+        <div class="SekzioTitulua">
+          <h2>
+            <?php
+            if ($q != "") echo "EMAITZAK: " . htmlspecialchars($q);
+            else echo "PRODUKTUAK";
+            ?>
+          </h2>
         </div>
-        <section class="SekzioarenTitulua">
-          <div class="SekzioTitulua">
-            <h2>
-              <?php
-              if ($q != "") echo "EMAITZAK: " . htmlspecialchars($q);
-              else echo "PRODUKTUAK";
-              ?>
-            </h2>
-          </div>
-        </section>
+      </section>
 
-        <div class="ProduktuZerrenda">
-          <?php if ($ema->num_rows > 0): ?>
-            <?php while ($row = $ema->fetch_assoc()): ?>
-              <div class="Produktuak">
-                <div class="produktu_argazkia">
-                  <img class="" src="Argazkiak/<?= $row['argazkia'] ?>" alt="<?= $row['izena'] ?>" />
-                </div>
-                <div class="produktu-titulua">
-                  <h3><?= $row['izena'] ?></h3>
-                  <p><strong><?= $row['prezioa'] ?> €</strong></p>
-                </div>
-                <div class="ErosiBotoia">
-                  <button><strong>GEHITU SASKIRA</strong></button>
-                </div>
+      <div class="ProduktuZerrenda">
+        <?php if ($ema->num_rows > 0): ?>
+          <?php while ($row = $ema->fetch_assoc()): ?>
+            <div class="Produktuak">
+              <div class="produktu_argazkia">
+                <img class="" src="Argazkiak/<?= $row['argazkia'] ?>" alt="<?= $row['izena'] ?>" />
               </div>
-            <?php endwhile; ?>
-          <?php else: ?>
-            <p style="color: black; grid-column: span 2; padding: 20px;">
-              Ez da produkturik aurkitu bilaketa horrekin.
-            </p>
-          <?php endif; ?>
-        </div>
-      </main>
-    
+              <div class="produktu-titulua">
+                <h3><?= $row['izena'] ?></h3>
+                <p><strong><?= $row['prezioa'] ?> €</strong></p>
+              </div>
+              <div class="ErosiBotoia">
+                <form class="form-botoia" method="POST" action="gehitu.php">
+                  <input type="hidden" name="id" value="<?= $row['produktu_id'] ?>"> <input type="hidden" name="izena" value="<?= htmlspecialchars($row['izena']) ?>">
+                  <input type="hidden" name="prezioa" value="<?= $row['prezioa'] ?>">
+                  <button type="submit" class="gehitusaskira"><strong>GEHITU SASKIRA</strong></button>
+                </form>
+              </div>
+            </div>
+          <?php endwhile; ?>
+        <?php else: ?>
+          <p style="color: black; grid-column: span 2; padding: 20px;">
+            Ez da produkturik aurkitu bilaketa horrekin.
+          </p>
+        <?php endif; ?>
+      </div>
+    </main>
+
 </body>
 
 </html>

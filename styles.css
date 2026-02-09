@@ -193,6 +193,10 @@ header h1 {
     cursor: pointer;
 }
 
+.form-saskia {
+    display: contents;
+}
+
 .filtro {
     width: 350px;
     background-color: rgba(255,255,255,0.9);
@@ -347,6 +351,26 @@ header h1 {
             font-size: 16px;
             line-height: 1.4;
         }
+
+
+    /*SASKIA*/
+
+    .saskia{
+        width: 360px;
+        padding: 10px 20px;
+        margin-top: 10%;
+        color: black;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.288);
+
+    }
+    .saskia-gorputza{
+        display: flex;
+        justify-content: center;
+    }
+
+    
 
     @media (min-width: 1024px) {
     .DispositibaMultzoa {
