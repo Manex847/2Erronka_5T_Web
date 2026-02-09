@@ -12,7 +12,7 @@
 
 <body>
 
-  <?php include "Menua.php";?>
+  <?php include "Menua.html";?>
 
 <div class="container">
 

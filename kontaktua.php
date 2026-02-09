@@ -13,7 +13,7 @@
 
   <header class="goiburua">
     <?php
-    include "Menua.php";
+    include "Menua.html";
     ?>
   </header>
 
