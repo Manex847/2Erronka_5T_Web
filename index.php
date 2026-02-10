@@ -27,12 +27,12 @@
     ?>
 
     <main>
-      <section class="Slogana">
+      <section class="slogana">
         <h1>BIRTEK</h1>
         <h4>BIRziklatu TEKnologia eta bigarren bizitza bat eman</h4>
       </section>
-      <section class="SliderMain">
-        <div class="DispositibaMultzoa autoplay">
+      <section class="slidermain">
+        <div class="dispositibamultzoa autoplay">
           <div width="100%" class="Slider1">
             <img
               src="Argazkiak/Slider/AsusVisionM1.jpeg"
@@ -68,42 +68,36 @@
       </section>
 
       <section>
-        <div class="ErosiBotoia">
-          <button href="Produktuak.php">IKUSI PRODUKTUAK</button>
-        </div>
+        
+          <a class="erosibotoia" href="Produktuak.php">IKUSI PRODUKTUAK</a>
+        
       </section>
 
-      <section class="Asoziatuak">
+      <section class="asoziatuak">
         <img
-          class="imgMicrosoft"
           src="Argazkiak/MicrosoftLogo.webp"
           alt="MicrosoftLogo"
           width="100px"
         />
 
         <img
-          class="imgAsus"
           src="Argazkiak/AsusLogo.webp"
           alt="AsusLogo"
           width="100px"
         />
 
         <img
-          class="imgGoogle"
           src="Argazkiak/GoogleLogo.webp"
           alt="GoogleLogo"
           width="100px"
         />
 
         <img
-          class="imgBlackMagic"
           src="Argazkiak/BlackMagicLogo.webp"
           alt="BlackMagicLogo"
           width="100px"
         />
       </section>
-
-      
     </main>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

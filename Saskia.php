@@ -55,7 +55,7 @@
                 <?php endif; ?>
 
                 <br>
-                <a href="index.html">Dendara itzuli</a>
+                <a href="Produktuak.php">Dendara itzuli</a>
             </div>
         </div>
     </body>

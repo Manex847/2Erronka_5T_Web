@@ -82,8 +82,8 @@
           <button type="submit">Aplikatu</button>
         </form>
       </div>
-      <section class="SekzioarenTitulua">
-        <div class="SekzioTitulua">
+      <section class="sekzioarentitulua">
+        <div class="sekziotitulua">
           <h2>
             <?php
             if ($q != "") echo "EMAITZAK: " . htmlspecialchars($q);
@@ -93,18 +93,18 @@
         </div>
       </section>
 
-      <div class="ProduktuZerrenda">
+      <div class="produktuzerrenda">
         <?php if ($ema->num_rows > 0): ?>
           <?php while ($row = $ema->fetch_assoc()): ?>
-            <div class="Produktuak">
+            <div class="produktuak">
               <div class="produktu_argazkia">
-                <img class="" src="Argazkiak/<?= $row['argazkia'] ?>" alt="<?= $row['izena'] ?>" />
+                <img src="Argazkiak/<?= $row['argazkia'] ?>" alt="<?= $row['izena'] ?>" />
               </div>
               <div class="produktu-titulua">
                 <h3><?= $row['izena'] ?></h3>
                 <p><strong><?= $row['prezioa'] ?> €</strong></p>
               </div>
-              <div class="ErosiBotoia">
+              <div class="erosibotoia">
                 <form class="form-botoia" method="POST" action="gehitu.php">
                   <input type="hidden" name="id" value="<?= $row['produktu_id'] ?>"> <input type="hidden" name="izena" value="<?= htmlspecialchars($row['izena']) ?>">
                   <input type="hidden" name="prezioa" value="<?= $row['prezioa'] ?>">

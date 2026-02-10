@@ -7,7 +7,7 @@
     <title>HornitzaileFormularioa</title>
 </head>
 
-<body class="Formularioa">
+<body class="formularioa">
     <?php
     include "Menua.php";
 
