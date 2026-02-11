@@ -56,6 +56,10 @@ if (isset($_POST['erosi']) && !empty($_SESSION['saskia'])) {
                 <h2 style='color: #48bb78;'>✅ Eskaera ondo gorde da!</h2>
                 <p>Eskaera zenbakia: <strong>$eskaera_id</strong></p>
                 <p>Produktuak: <strong>$produktu_kopurua</strong></p>
+                <form method='POST' action='sortu_pdf.php' style='display: inline-block; margin: 20px 10px 0 10px;'>
+                    <input type='hidden' name='eskaera_id' value='$eskaera_id'>
+                    <button type='submit' style='padding: 10px 20px; background: #f56565; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;'>PDF deskargatu</button>
+                </form>
                 <a href='index.php' style='display: inline-block; margin-top: 20px; padding: 10px 20px; background: #667eea; color: white; text-decoration: none; border-radius: 5px;'>Hasierara itzuli</a>
               </div>";
     } else {
