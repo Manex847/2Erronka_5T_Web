@@ -1,3 +1,4 @@
+
 *{
     margin: 0px;
 }
@@ -22,7 +23,7 @@ body {
 }
 
 header {
-    position: fixed !important;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -37,7 +38,7 @@ header {
     box-sizing: border-box;
 }
 
-.LogoHeader {
+.logoheader {
     height: 60px;
     width: auto;
     margin-right: 0px;
@@ -69,6 +70,7 @@ header h1 {
     z-index: 1001;
     transition: 0.3s ease-in-out;
     padding: 80px 20px 20px;
+    
 }
 
 .sidebar.active {
@@ -94,13 +96,14 @@ header h1 {
     font-size: 2.5rem;
 }
 
-.Slogana {
+.slogana {
     background-color: rgb(9, 199, 9);
     padding: 50px 10px;
     text-align: center;
+    color: white;
 }
 
-.SliderMain {
+.slidermain {
     width: 100vw;
     position: relative;
     left: 50%;
@@ -111,11 +114,11 @@ header h1 {
     margin-top: 20px;
 }
 
-.DispositibaMultzoa {
+.dispositibamultzoa {
     width: 100%;
 }
 
-.DispositibaMultzoa div {
+.dispositibamultzoa div {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -125,7 +128,7 @@ header h1 {
     
 }
 
-.DispositibaMultzoa img {
+.dispositibamultzoa img {
     width: 100%; 
     height: 200px;
     object-fit: cover;
@@ -134,68 +137,82 @@ header h1 {
     display: block;
 }
 
-.SekzioTitulua{
+.sekziotitulua{
     background-color: rgba(9, 214, 9, 0.733);
     padding: 15px;
     margin-top: 5px;
 }
 
-.Produktuak{
-    text-align: center;
-    place-items: center;
-    border-radius: 15px;
-    padding: 5px;
-    padding-bottom: 25px;
-    color: black;
+.asoziatuak{
     background-color: white;
-    width: 85%;
-    height: 250px;
-    margin-top: 5px;
-    box-shadow: 10px 10px 15px rgba(128, 128, 128, 0.438);
-}
-
-.Produktuak img{
-    width: 150px;
-    height: 100px;
-    margin-top: 10px;
-    
-}
-
-.ProduktuZerrenda{
-    display: grid;
-    place-items: center;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
     margin-top: 20px;
 }
 
-.ErosiBotoia{
-    background-color: rgb(9, 199, 9);
-    border: none;
-    padding: 20px 50px;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-    margin-top: 50px;
-    width: 40%;
-    height: 15%;
-    margin-bottom: 5px;
-    display:flex;
-    text-align: center;
+
+
+/*TXARTELAK*/
+
+.produktuak{
+    border-radius: 15px;
+    padding: 5px;
+    color: black;
+    background-color: white;
+    width: 85%;
+    height: 300px;
+    box-shadow: 10px 10px 15px rgba(128, 128, 128, 0.438);
+}
+
+.produktuak img{
+    width: 60%;
+    height: auto;
+    margin-top: 10px;
+}
+
+.produktuzerrenda{
+    display: grid;
     place-items: center;
+    text-align: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    margin-top: 20px;
+    gap: 5px;
+}
+.produktu_argazkia{
+    display: flex;
+    align-items: center;
     justify-content: center;
-    color: rgb(255, 255, 255);
-}   
+    width: auto;
+    height: 150px;
+}
+.produktu-titulua{
+    height: 80px;
+    
+}
+
+.erosibotoia{
+    display: flex;
+    justify-content: center;
+}  
+
+.erosibotoia button{
+    background-color: rgb(0, 255, 0);
+    border: 0px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.form-saskia {
+    display: contents;
+}
 
 .filtro {
-    width: 220px;
+    width: 350px;
     background-color: rgba(255,255,255,0.9);
     color: black;
     padding: 20px;
+    margin-bottom: 10px;
     border-radius: 10px;
     height: fit-content;
-    position: sticky;
-    top: 90px;
     box-shadow: 5px 5px 15px rgba(0,0,0,0.15);
 }
 
@@ -220,21 +237,256 @@ header h1 {
     width: 100%;
     padding: 10px;
     background-color: rgb(9, 199, 9);
-    border: none;
     color: white;
     cursor: pointer;
 }
 
-@media (min-width: 1024px) {
-    .DispositibaMultzoa {
-        max-width: 800px;
-        margin: 0 auto;
+
+/*FORMULARIOA*/
+
+.formularioa{
+    color: black;
+    place-items: center;
+    background-color: lightgrey;
+}
+.formulario-container{
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.26);
+    background-color: white;
+    max-width: 400px;
+    padding: 20px;
+    margin-top: 50px;
+    border-radius: 10px;
+}
+
+.formulario-datuak{
+    background-color: lightgreen;
+}
+
+/* berriak: */
+       
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 30px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            color: black;
+        }
+
+        .berria {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            color: black;
+        }
+
+        .berria img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .edukia {
+            padding: 15px 20px;
+        }
+
+        .titulua {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: black;
+        }
+
+        .data {
+            color: black;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        p{
+            color: black;
+            font-size: 16px;
+            line-height: 1.4;
+        }
+    
+/* berriak: */
+       
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 30px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            color: black;
+        }
+
+        .berria {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            color: black;
+        }
+
+        .berria img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .edukia {
+            padding: 15px 20px;
+        }
+
+        .titulua {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: black;
+        }
+
+        .data {
+            color: black;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        p{
+            color: black;
+            font-size: 16px;
+            line-height: 1.4;
+        }
+
+
+    /*SASKIA*/
+
+    .saskia{
+        width: 360px;
+        padding: 10px 20px;
+        margin-top: 10%;
+        color: black;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.288);
+
+    }
+    .saskia-gorputza{
+        display: flex;
+        justify-content: center;
     }
 
-    .DispositibaMultzoa img {
-        width: 100%;
-        max-width: 700px;
-        height: 350px;
-        margin: 0 auto;
+
+    /*KONTAKTUA*/
+
+    .kontaktua_gorputza {
+    display: flex;
+    flex-direction: column;
+    min-height: 100px;
+}
+
+.kontaktua_sekzioa {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.kontaktua_edukia {
+    background-color: white;
+    width: 350px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 10px 10px 15px rgba(128, 128, 128, 0.438);
+    color: black;
+}
+
+.kontaktua_edukia h3 {
+    text-align: center;
+    color: rgb(9, 199, 9);
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+.kontaktua_formularioa {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.kontaktua_formularioa label {
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.kontaktua_formularioa input, 
+.kontaktua_formularioa textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Segoe UI', sans-serif;
+    box-sizing: border-box;
+}
+
+.kontaktua_formularioa textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.kontaktua_formularioa .btn {
+    background-color: rgb(0, 255, 0);
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.kontaktua_mapa {
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.azpioina {
+    background: rgba(53, 226, 0, 0.774);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    text-align: center;
+    color: white;
+    margin-top: auto;
+}
+
+.azpioina p {
+    color: white;
+}
+
+.azpioina ul {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+}
+
+.azpioina ul a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+@media (min-width: 768px) {
+    .kontaktua_edukia {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+    
+    .kontaktua_edukia h3 {
+        grid-column: span 2;
     }
 }
