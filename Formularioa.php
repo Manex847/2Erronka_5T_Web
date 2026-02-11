@@ -10,18 +10,10 @@
 <body class="formularioa">
     <?php
     include "Menua.php";
+    
+    require_once "Konexioa.php";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $servidor = "localhost";
-        $usuario = "root";
-        $password = "1MG32025";
-        $base_datos = "bigarrenerronka";
-
-        $conn = new mysqli($servidor, $usuario, $password, $base_datos);
-
-        if ($conn->connect_error) {
-            die("Errorea: " . $conn->connect_error);
-        }
 
         $izena = $_POST['izena'];
         $abizenak = $_POST['abizenak'];
@@ -30,17 +22,18 @@
         $telefonoa = $_POST['telefonoa'];
         $email = $_POST['email'];
 
-        $stmt = $conn->prepare("INSERT INTO hornitzaileak (izena, abizenak, helbidea, nan, telefonoa, email) VALUES (?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssssss", $izena, $abizenak, $helbidea, $nan, $telefonoa, $email);
+        // EL ORDEN DEBE SER: helbidea, izena, abizenak, nan, telefonoa, email
+        $stmt = $konexioa->prepare("INSERT INTO hornitzaileak (helbidea, izena, abizenak, nan, telefonoa, email) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssssss", $helbidea, $izena, $abizenak, $nan, $telefonoa, $email);
 
         if ($stmt->execute()) {
             echo "<p>Datuak ondo gorde dira!</p>";
         } else {
-            echo "<p>Errorea: Ezin izan daira datuak sartu, saiatu berriro beranduago" . $stmt->error . "</p>";
+            echo "<p>Errorea: Ezin izan daira datuak sartu, saiatu berriro beranduago " . $stmt->error . "</p>";
         }
 
         $stmt->close();
-        $conn->close();
+        $konexioa->close();
     }
 
     ?>
