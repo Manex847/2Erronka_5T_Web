@@ -40,7 +40,7 @@ if (session_status() === PHP_SESSION_NONE) {
             </div>
         <?php endif; ?>
 
-        <img src="logo.png" alt="Logotipoa" width="150px" class="logoheader">
+        <img src="Argazkiak/logo.png" alt="Logotipoa" width="150px" class="logoheader">
     </header>
 
     <script>

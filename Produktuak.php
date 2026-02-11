@@ -106,7 +106,7 @@
               </div>
               <div class="erosibotoia">
                 <form class="form-botoia" method="POST" action="gehitu.php">
-                  <input type="hidden" name="id" value="<?= $row['produktu_id'] ?>"> <input type="hidden" name="izena" value="<?= htmlspecialchars($row['izena']) ?>">
+                  <input type="hidden" name="id" value="<?= $row['id'] ?>"> <input type="hidden" name="izena" value="<?= htmlspecialchars($row['izena']) ?>">
                   <input type="hidden" name="prezioa" value="<?= $row['prezioa'] ?>">
                   <button type="submit" class="gehitusaskira"><strong>GEHITU SASKIRA</strong></button>
                 </form>

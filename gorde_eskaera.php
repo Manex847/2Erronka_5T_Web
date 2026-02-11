@@ -4,6 +4,7 @@ session_start();
 include "Konexioa.php";
 include "Menua.php";
 
+
 if (!$konexioa) {
     die("Konexio errorea");
 }
@@ -20,12 +21,12 @@ if (isset($_POST['erosi']) && !empty($_SESSION['saskia'])) {
     $data = date("Y-m-d");
 
     
-    $stmt = mysqli_prepare($konexioa, "SELECT bezero_id FROM bezeroak WHERE izena = ?");
+    $stmt = mysqli_prepare($konexioa, "SELECT id FROM bezeroak WHERE izena = ?");
     mysqli_stmt_bind_param($stmt, "s", $erabiltzailea);
     mysqli_stmt_execute($stmt);
     $emaitza = mysqli_stmt_get_result($stmt);
     $fila = mysqli_fetch_assoc($emaitza);
-    $bezero_id = $fila ? $fila['bezero_id'] : 0;
+    $bezero_id = $fila ? $fila['id'] : 0;
     mysqli_stmt_close($stmt);
 
     if ($bezero_id == 0) {
@@ -33,7 +34,7 @@ if (isset($_POST['erosi']) && !empty($_SESSION['saskia'])) {
     }
 
     
-    $res_max = mysqli_query($konexioa, "SELECT MAX(eskaera_id) AS max_id FROM eskaerak");
+    $res_max = mysqli_query($konexioa, "SELECT MAX(id) AS max_id FROM eskaerak");
     $fila_max = mysqli_fetch_assoc($res_max);
     $eskaera_id = (int)($fila_max['max_id'] ?? 0) + 1;
 
@@ -49,7 +50,7 @@ if (isset($_POST['erosi']) && !empty($_SESSION['saskia'])) {
         
         if (is_array($balioa)) {
             $produktu_id = isset($balioa['id']) ? (int)$balioa['id'] : 
-                          (isset($balioa['produktu_id']) ? (int)$balioa['produktu_id'] : 0);
+                          (isset($balioa['id']) ? (int)$balioa['id'] : 0);
             $kantitatea = isset($balioa['kantitatea']) ? (int)$balioa['kantitatea'] : 1;
         }
         
