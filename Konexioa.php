@@ -1,5 +1,5 @@
 <?php
-$serbidorea = "localhost:3307";
+$serbidorea = "localhost:3306";
 $erabiltzailea = "root";
 $pasahitza = "1MG32025";
 $datu_basea = "bigarrenerronka";
